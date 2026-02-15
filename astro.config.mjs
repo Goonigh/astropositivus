@@ -1,18 +1,16 @@
 import { defineConfig } from 'astro/config';
-
 import tailwind from "@astrojs/tailwind";
+import node from '@astrojs/node'; 
 
-// Import the Vercel adapter
-import vercel from '@astrojs/vercel';
-
-import node from '@astrojs/node';
-
-// https://astro.build/config
 export default defineConfig({
-  site: "https://positivustheme.vercel.app",
+  site: "https://mondayflows.com",
   integrations: [tailwind()],
   output: 'server',
   adapter: node({
     mode: 'standalone',
   }),
+  server: {
+    host: true,
+    port: 4321
+  }
 });
